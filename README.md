@@ -9,10 +9,10 @@ Docker image will also be moved to and versioned on Docker Hub.
 
 This section assumes that you are using Debian or one of its derivates.
 
-1. Check whether your Kernel is suitable for Docker:
+1. Check whether your Kernel is suitable for Docker (should be >= 3.10):
 
    ```
-   uname -r # should be >= 3.10
+   uname -r
    ```
 
 2. All following commands assume root, otherwise preprend with `sudo`.  Update
@@ -85,7 +85,7 @@ This section assumes that you are using Debian or one of its derivates.
 
        (Create `install.sh` script?)
 
-    2. Make the files in the repo private, `chmod go= *`
+    2. Make the files in the repo private, `chmod -R go= *`
     2. Edit the `db.env` which is used to set up the PostgreSQL superuser.
     3. Edit the `app.env` file to match your needs.
     3. Generate the required files using the declared variables `./generate.sh`

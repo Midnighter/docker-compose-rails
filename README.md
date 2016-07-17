@@ -7,60 +7,81 @@ Docker image will also be moved to and versioned on Docker Hub.
 
 ## General Steps
 
+This section assumes that you are using Debian or one of its derivates.
+
 1. Check whether your Kernel is suitable for Docker:
 
-       uname -r # should be >= 3.10
+   ```
+   uname -r # should be >= 3.10
+   ```
 
 2. All following commands assume root, otherwise preprend with `sudo`.  Update
    the system (use `apt` starting Ubuntu 16.04):
 
-    apt-get update
-    apt-get upgrade
-    apt-get dist-upgrade
+   ```
+   apt-get update
+   apt-get upgrade
+   apt-get dist-upgrade
+   ```
 
 3. Check and set locale:
 
-       locale
+   ```
+   locale
+   ```
 
-   1. In case some language packs are missing install, for example, `en` and
-      regenerate.
+    1. In case some language packs are missing install, for example, `en` and
+       regenerate.
 
-          apt-get install language-pack-en-base
-          locale-gen
+       ```
+       apt-get install language-pack-en-base
+       locale-gen
+       ```
 
-   2. Then set up new locale (requires logout between updates to locale):
+    2. Then set up new locale:
 
-          update-locale LANG=en_US.UTF-8 LC_ALL=en_IE.UTF-8
+       ```
+       update-locale LANG=en_US.UTF-8 LC_ALL=en_IE.UTF-8
+       ```
 
-          locale > /etc/default/locale
+    3. Log out and back in:
 
-   3. Edit `/etc/default/locale` to say:
+       ```
+       locale > /etc/default/locale
+       ```
 
-          LANG=en_US.UTF-8
-          ...
-          LC_MESSAGES="en_US.UTF-8"
-          ...
-          LC_ALL=
+    4. Edit `/etc/default/locale` to say:
+
+       ```
+       LANG=en_US.UTF-8
+       ...
+       LC_MESSAGES="en_US.UTF-8"
+       ...
+       LC_ALL=
+       ```
 
 ## Docker Compose Steps
 
 1. Install Docker and Docker Compose:
 
-   1. Follow these instructions:
-      https://docs.docker.com/v1.11/engine/installation/linux/ubuntulinux/
+    1. Follow the instructions to [install docker-compose](https://docs.docker.com/v1.11/compose/install/).
 
-   2. Get the Docker images needed later in the process:
+    2. Get the Docker images needed later in the process:
 
+       ```
        docker pull ruby:2.3
        docker pull postgres:9.5
        docker pull elasticsearch:2.3
        docker pull nginx:1.10
+       ```
 
 2. Setup and run the project:
 
     1. Get the repository for the setup code:
 
-           git clone https://...
+       ```
+       git clone https://github.com/Midnighter/docker-compose-rails
+       ```
 
        (Create `install.sh` script?)
 

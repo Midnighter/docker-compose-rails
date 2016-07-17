@@ -71,3 +71,8 @@ Docker image will also be moved to and versioned on Docker Hub.
     3. Make yourself owner `sudo chown -R <username>:<username> ICData/`
     3. Start the services together `docker-compose up`
     3. Setup the tables and seed `docker-compose run --rm web rake db:setup`
+
+## Licensing
+
+Please see the [BSD 3-Clause License](LICENSE) that should be part of this
+repository.

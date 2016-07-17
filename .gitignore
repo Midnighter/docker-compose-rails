@@ -1,0 +1,3 @@
+Dockerfile.app
+docker-compose.yml
+dbsetup/00_db_init.sql

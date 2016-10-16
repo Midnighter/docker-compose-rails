@@ -17,7 +17,7 @@ set +a
 
 # required variables
 echo "Chosen app directory: '${APP_PATH:?"is required, please edit 'app.env'"}'"
-echo "Chosen persistent data directory: '${APP_DB_DIR:?"is required, please edit 'app.env'"}'"
+echo "Chosen persistent data volume: '${APP_DB_VOLUME:?"is required, please edit 'app.env'"}'"
 echo "Chosen database user: '${APP_DB_USER:?"is required, please edit 'app.env'"}'"
 echo "Chosen container's data directory: '${PGDATA:?"is required, please edit 'db.env'"}'"
 
